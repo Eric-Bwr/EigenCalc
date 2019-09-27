@@ -13,7 +13,8 @@ bool Application::processInput(int argc, char** argv) {
 	if (argc == 2) {
 		path = argv[1];
 		return true;
-	} else {
+	}
+	else {
 		//If Input is incorrect return "incorrectInput"
 		std::cout << "incorrectInput";
 		return false;
@@ -45,12 +46,12 @@ bool Application::loadFile() {
 bool Application::modify() {
 	//Looping through each and every line in the file
 	for (char* line : *lines) {
-		//Splitting the lines again by a tab or space
-		std::vector<char*>* elements = fileStream.splitToVector(line, '\t', ' ');
-		//If for example the last line (or any) has no content and thus is just a \n skipping the line
-		if (elements->empty()) {
+		//Checking if the line has at least one character in it and doesnt point to nevarda
+		if (line == nullptr || line[0] == '\0') {
 			continue;
 		}
+		//Splitting the lines again by a tab or space
+		std::vector<char*>* elements = fileStream.splitToVector(line, '\t', ' ');
 		//Creating the 3*3 matrix from the content given by the file
 		MatrixXd matrix(3, 3);
 		matrix(0, 0) = atof(elements->at(1));
@@ -110,7 +111,8 @@ bool Application::writeFile() {
 	if (pos == std::string::npos) {
 		//If not return "incorrectInput" wich you can catch
 		std::cout << "incorrectInput";
-	} else {
+	}
+	else {
 		//If so remove the "gtsMOI from the path
 		*pathName = pathName->substr(0, pos);
 		//And put an gtsEIG at the end
@@ -128,13 +130,13 @@ bool Application::writeFile() {
 Application app;
 
 //The main function is the point where it all begins (Executed when clicking on the .exe)
-int main(int argc, char** argv){
+int main(int argc, char** argv) {
 	//Executes processInput() first
-	if(app.processInput(argc, argv))
+	if (app.processInput(argc, argv))
 		//If executed successfully loadFile will be execute and so on
-		if(app.loadFile())
-			if(app.modify())
-				if(app.writeFile())
+		if (app.loadFile())
+			if (app.modify())
+				if (app.writeFile())
 					//Returning "done" when everything worked out just fine
 					std::cout << "done" << std::endl;
 	//Returning 0 so that no error is thrown except command line errors wich you can catch (Error would be anything but 0)
