@@ -7,10 +7,10 @@ project (EigenCalc)
 set(CMAKE_CXX_STANDARD 17)
 
 set (SOURCE_FILES 
-	EigenCalc/Application.h
-	EigenCalc/Application.cpp
-	EigenCalc/FileStream.h
-	EigenCalc/FileStream.cpp
+	${PROJECT_NAME}/Application.h
+	${PROJECT_NAME}/Application.cpp
+	${PROJECT_NAME}/FileStream.h
+	${PROJECT_NAME}/FileStream.cpp
 )
 
 include_directories(Dependencies)
