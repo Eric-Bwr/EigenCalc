@@ -58,7 +58,7 @@ std::vector<char*>* FileStream::splitToVector(char* data, char firstCheck, char 
 	//Defining Buffers
 	std::vector<char*> splitData;
 	std::string _data(data);
-	std::string* buffer = new std::string;
+	auto buffer = new std::string;
 	//Going through each letter (char) and checking if any letter is equal to first/secondCheck
 	//If so, a new "Sentence" will begin
 	for (char letter : _data) {
