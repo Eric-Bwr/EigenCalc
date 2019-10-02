@@ -21,5 +21,5 @@ public:
 	//Defining methods (Same as in the .cpp)
 	char* readFile(const char* path, const char* mode = "r");
 	void writeFile(char* buffer, const char* path, const char* mode = "w");
-	std::vector<char*>* FileStream::splitToVector(char* data, char firstCheck, char secondCheck);
+	std::vector<char*>* splitToVector(char* data, char firstCheck, char secondCheck);
 };
